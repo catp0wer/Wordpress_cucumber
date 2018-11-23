@@ -1,10 +1,10 @@
 package pages;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import static org.junit.Assert.assertEquals;
 
 public class PostPage extends PageObject {
@@ -28,10 +28,13 @@ public class PostPage extends PageObject {
     @FindBy(xpath = "//span[@id='post-status-display']")
     public WebElement postStatus;
 
+    String randomTitle = RandomStringUtils.randomAlphabetic(8);
     public void enterTitle(){
-        postTitle.sendKeys("Writing title");
+        postTitle.sendKeys(randomTitle);
     }
+
     public String expectedPostPublishedText = "Published";
+
     public void isElementPresent(WebDriver driver, String expectedText, WebElement element){
         pageObject.onThePage(element,driver);
         assertEquals(expectedText, element.getText());
