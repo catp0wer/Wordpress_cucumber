@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 
-@CucumberOptions(features="src/test/resources/features", glue="stepDefinitions")
+@CucumberOptions(features="src/test/resources/features/EditPost.feature", glue="stepDefinitions")
 
 
 public class testRunner {

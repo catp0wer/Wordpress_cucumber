@@ -26,6 +26,8 @@ public class ToolBarPage extends PageObject{
     @FindBy(xpath = "(//a[contains(@href,'post-new.php')])[1]")
     public WebElement newPostMenuItem;
 
+
+
     public String expectedDashboardText = "Dashboard";
 
     public void isElementPresent(WebDriver driver, String expectedText, WebElement element){
