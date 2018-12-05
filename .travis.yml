@@ -4,9 +4,12 @@ env:
   # this environment variable is needed to tell geckodriver to run the browser
   # in headless mode, i.e., without an actual computer screen, which is suitable
   # for continuous integration
-  - MOZ_HEADLESS=1 DBUS_SESSION_BUS_ADDRESS=/dev/null
+  - MOZ_HEADLESS=1
 addons:
   firefox: "63.0.3"
+  apt:
+    packages:
+    - dbus-x11
 before_install:
   # manually install geckodriver, by downloading a specific version, which
   # we know for sure is compatible with our test
@@ -14,11 +17,12 @@ before_install:
   - mkdir geckodriver
   - tar -xzf geckodriver-v0.23.0-linux64.tar.gz -C geckodriver
   - export PATH=$PATH:$PWD/geckodriver
+#  - export DBUS_SESSION_BUS_ADDRESS=/dev/null
   
-#before_script:
-#  - "export DISPLAY=:99.0"
-#  - "sh -e /etc/init.d/xvfb start"
-#  - sleep 3 # give xvfb some time to start
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
 
 script:
   - geckodriver --version
