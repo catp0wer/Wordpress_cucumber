@@ -1,8 +1,10 @@
 language: java
-jdk:
-  - oraclejdk8
-  
-script: mvn clean verify 
-
-  
- 
+jdk: oraclejdk8
+env:
+  - MOZ_HEADLESS=1
+addons:
+  firefox: latest
+before_install:
+  - cd java
+script:
+  - mvn clean test
