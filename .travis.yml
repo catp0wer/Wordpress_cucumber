@@ -4,8 +4,7 @@ env:
   # this environment variable is needed to tell geckodriver to run the browser
   # in headless mode, i.e., without an actual computer screen, which is suitable
   # for continuous integration
-  - MOZ_HEADLESS=1
-  - DBUS_SESSION_BUS_ADDRESS=/dev/null
+  - MOZ_HEADLESS=1 DBUS_SESSION_BUS_ADDRESS=/dev/null
 addons:
   firefox: "63.0.3"
 before_install:
