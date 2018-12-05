@@ -9,7 +9,9 @@ import cucumber.api.junit.Cucumber;
 
 @CucumberOptions(features="src/test/resources/features/EditPost.feature", glue="stepDefinitions")
 
-
-public class testRunner {
+//NOTE: Maven test autodiscovery will only look for classes that follow one of these patterns:
+//Test* or *Test, and it is case sensitive. So `testRunner` wouldn't work, and you'll have no hint
+//about why that is the case
+public class TestRunner {
 
 }

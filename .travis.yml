@@ -18,4 +18,3 @@ before_install:
 script:
   - geckodriver --version
   - mvn clean test
-  - whereis javac
